@@ -2488,6 +2488,10 @@ const recordTimeEcho = (choiceType, context, scenario) => {
   saveTimeEchoes(echoes);
 };
 
+  const cycle = loadCycleCount();
+  if (cycle < 1) return [];
+  return loadTimeEchoes();
+};
 
 // ── 57번: 신화 작가 ──
 // 회차를 거듭할수록 플레이어의 이야기가 세계 신화로 편입되어 NPC들이 전설을 아는 채로 등장
