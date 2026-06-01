@@ -2074,7 +2074,7 @@ function ChatApp({ apiKeys, character, onReset, onReincarnate, onKeyReset, pastL
       if (!_qk) { setChoices(FALLBACK); return; }
       const res=await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key="+_qk,{
         method:"POST",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({contents:[...history.slice(-6).map(m => ({ role:m.role==="assistant"?"model":"user", parts:[{ text:m.content }] })), { role:"user", parts:[{ text:"현재 상황에서 주인공이 취할 수 있는 행동 3가지를 JSON으로만 출력. {"choices":["행동1","행동2","행동3"]}" }] }],generationConfig:{temperature:0.9,maxOutputTokens:250}})
+        body:JSON.stringify({contents:[...history.slice(-6).map(m => ({ role:m.role==="assistant"?"model":"user", parts:[{ text:m.content }] })), { role:"user", parts:[{ text:'현재 상황에서 주인공이 취할 수 있는 행동 3가지를 JSON으로만 출력. {"choices":["행동1","행동2","행동3"]}' }] }],generationConfig:{temperature:0.9,maxOutputTokens:250}})
       });
       if (!res.ok) throw new Error("HTTP "+res.status);
       const data = await res.json();

@@ -1365,6 +1365,7 @@ const addTimeEcho = (text, speaker, emotion, scenario) => {
 };
 
 const getTimeEchoes = () => {
+const getTimeEchoes = () => {
   const cycle = loadCycleCount();
   if (cycle < 1) return [];
   return loadTimeEchoes();
