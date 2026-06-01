@@ -4979,6 +4979,14 @@ function ChatApp({ apiKeys, character, onReset, onReincarnate, onKeyReset, pastL
 }
 
 function App() {
+  // 디버그용 - 나중에 삭제
+  React.useEffect(() => {
+    if (!document.getElementById("root").children.length || 
+        document.getElementById("root").innerHTML === "") {
+      document.getElementById("root").innerHTML = 
+        "<div style=\"color:orange;padding:20px\">React 마운트 실패</div>";
+    }
+  }, []);
   const [apiKeys, setApiKeys]     = useState(() => loadApiKeys());
   const [character, setCharacter] = useState(null);
   const [scenario, setScenario]   = useState(null);
@@ -5528,4 +5536,10 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+try {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+} catch(e) {
+  document.getElementById("root").innerHTML = 
+    '<div style="color:red;padding:20px;font-family:monospace;white-space:pre-wrap;background:#111">'
+    + '<h2>React 렌더링 오류</h2><pre>' + (e.message || e) + '\n\n' + (e.stack || '') + '</pre></div>';
+}
