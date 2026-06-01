@@ -2468,7 +2468,6 @@ const getLegendShards = () => {
 
 // ── 56번: 시간의 메아리 ──
 // 전생에서 한 중요한 선택이 이번 생에 다른 형태로 메아리처럼 돌아옴
-// (TIME_ECHO_KEY, loadTimeEchoes, saveTimeEchoes, clearTimeEchoes는 위에서 선언됨)
 
 const ECHO_CHOICE_TYPES = {
   mercy:     { icon:"🕊️", label:"자비의 메아리",  echo:"전생에 살려준 자의 후손이 결정적 순간에 은혜를 갚는다.",       bonus:"위기 시 구원자 NPC 1회 등장 보장" },
