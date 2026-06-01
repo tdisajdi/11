@@ -60,19 +60,22 @@
 <div id="root"></div>
 <div id="install-banner">📲 홈 화면에 앱 추가<span>설치하기 →</span></div>
 
+<script>
+window.onerror = function(msg, src, line, col, err) {
+  document.body.innerHTML = '<div style="color:red;padding:20px;font-family:monospace;white-space:pre-wrap;background:#111">'
+    + '<h2>런타임 오류</h2>'
+    + '<b>' + msg + '</b><br>'
+    + 'File: ' + src + '<br>'
+    + 'Line: ' + line + ', Col: ' + col + '<br>'
+    + (err ? err.stack : '') + '</div>';
+  return true;
+};
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.12.12/babel.min.js"></script>
 
-<script>
-(function() {
-  const noop = () => {};
-  console.log = noop;
-  console.warn = noop;
-  console.info = noop;
-  console.debug = noop;
-})();
-</script>
+<!-- console logging enabled for debugging -->
 
 <!-- 게임 데이터 (상수, 스킬, 아이템, 업적 등) -->
 <script type="text/babel" data-presets="react" src="data.js"></script>
